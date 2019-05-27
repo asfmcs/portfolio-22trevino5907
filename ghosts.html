@@ -1,0 +1,111 @@
+
+<html>
+<head>
+<title>Ghosts</title>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+
+<script type="text/javascript" src="https://static.codehs.com/gulp/ec071a764d83f34910ba21fab0b0f0cc20293542/chs-js-lib/chs.js"></script>
+
+
+<style>
+canvas {
+    border: 1px solid black;
+    display: inline-block;
+    vertical-align: top;
+}
+
+pre {
+    border: 1px solid black;
+    display: inline-block;
+    width: 400px;
+    height: 500px;
+    background-color: #F5F5F5;
+}
+</style>
+
+</head>
+
+<body>
+<h1>Ghosts</h1>
+
+
+
+<canvas
+width="400"
+height="500"
+class="codehs-editor-canvas"></canvas>
+<pre id="console"></pre>
+
+<script>
+window.onload = function() {
+
+    function start(){
+    var centerX = getWidth()/2;
+    var centerY = getHeight()/2;
+    drawGhost(centerX, centerY, Color.red);
+    drawGhost(100,100, Color.green);
+    drawGhost(300, 200, Color.black);
+    drawGhost(40, 300, Color.orange);
+    drawGhost(300, 50, Color.yellow);
+}
+
+
+function drawGhost(centerX,centerY,color ){
+    var l = 60;
+    var w = 70;
+    var rect = new Rectangle(w,l);
+    rect.setPosition(centerX,centerY);
+    rect.setColor(color);
+    add(rect);
+    
+    var circle = new Circle(w/2);
+    circle.setPosition(centerX +35,centerY);
+    circle.setColor(color);
+    add(circle);
+    
+    var circle = new Circle(w/6);
+    circle.setPosition(centerX +18,centerY);
+    circle.setColor(Color.white);
+    add(circle);
+    
+     var circle = new Circle(w/6);
+    circle.setPosition(centerX +42,centerY);
+    circle.setColor(Color.white);
+    add(circle);
+    
+    var circle = new Circle(w/12);
+    circle.setPosition(centerX +23,centerY);
+    circle.setColor(Color.blue);
+    add(circle);
+    
+    var circle = new Circle(w/12);
+    circle.setPosition(centerX +48,centerY);
+    circle.setColor(Color.blue);
+    add(circle);
+    
+    var circle = new Circle(w/5.5);
+    circle.setPosition(centerX+15,centerY+55);
+    circle.setColor(color);
+    add(circle);
+    
+     var circle = new Circle(w/5.5);
+    circle.setPosition(centerX+35,centerY+55);
+    circle.setColor(color);
+    add(circle);
+    
+    var circle = new Circle(w/5.5);
+    circle.setPosition(centerX+55,centerY+55);
+    circle.setColor(color);
+    add(circle);
+}
+
+
+    if (typeof start === 'function') {
+        start();
+    }
+};
+</script>
+
+</body>
+</html>
