@@ -1,0 +1,90 @@
+
+<html>
+<head>
+<title>Click for Collision</title>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+
+<script type="text/javascript" src="https://static.codehs.com/gulp/ec071a764d83f34910ba21fab0b0f0cc20293542/chs-js-lib/chs.js"></script>
+
+
+<style>
+canvas {
+    border: 1px solid black;
+    display: inline-block;
+    vertical-align: top;
+}
+
+pre {
+    border: 1px solid black;
+    display: inline-block;
+    width: 400px;
+    height: 500px;
+    background-color: #F5F5F5;
+}
+</style>
+
+</head>
+
+<body>
+<h1>Click for Collision</h1>
+
+
+
+<canvas
+width="400"
+height="500"
+class="codehs-editor-canvas"></canvas>
+<pre id="console"></pre>
+
+<script>
+window.onload = function() {
+
+    var blueCircle;
+var redCircle;
+var RADIUS = 25;
+var DX_RED = 6;
+var DX_BLUE = 4;
+var DELAY = 40;
+
+function start(){
+blueCircle = new Circle(25);
+blueCircle.setPosition(50, getHeight()/ 2);
+blueCircle.setColor(Color.blue);
+add(blueCircle);
+
+redCircle = new Circle(25);
+redCircle.setPosition(getWidth()/2, getHeight()/2);
+redCircle.setColor(Color.red);
+add(redCircle);
+
+mouseClickMethod(timer);
+
+}
+
+function timer(){
+    setTimer(move, 50);
+}
+
+function move(){
+    blueCircle.move(DX_BLUE, 0);
+    
+    if(blueCircle.getX() + blueCircle.getRadius() > redCircle.getX() - redCircle.getRadius()){
+    stopTimer(move);
+    setTimer(redMove, 50);
+    }
+}
+
+function redMove(){
+    redCircle.move(DX_RED, 0);
+}
+
+
+    if (typeof start === 'function') {
+        start();
+    }
+};
+</script>
+
+</body>
+</html>
