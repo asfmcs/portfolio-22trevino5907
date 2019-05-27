@@ -1,0 +1,25 @@
+    function start(){
+    while(true)
+    {
+    var row = readInt("how many # tall will your mountain be? ");
+    
+    println("Height" + row);
+    if(row<1 && row >> 13);
+    {
+        break;
+    }
+    }
+    
+    for(var i = 1; i <= row; i++)
+    {
+        for(var h = row - i+ 1;h > 0 + 1; h--)
+        {
+            print(" ");
+        }
+        for(var s = row - i + 1; s <= row + 1; s++)
+        {
+            print("#");
+        }
+        println("");
+    }
+}
